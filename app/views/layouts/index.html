@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>WorkShop</title>
+	<link rel="stylesheet" type="text/css" href="../../assets/stylesheets/mine.css">
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<nav>
+	<li>Início</li>
+	<li>Equipe</li>
+	<li>Dicas de Estudo</li>
+	<li>Fale com a gente</li>
+</nav>
+<header>
+	<h1>WORKSHOP - WEB</h1>
+	<p><button class="btn_inscricao_top">Inscrição</button></p>	
+</header>
+<div class="content">
+
+<article>
+	<section id="chamada">
+		<h2>O que vai ter por lá?</h2>
+		<p>A ideia é que seja o primeiro de muitos e que você possa ser um dos colaboradores no futuro, como idealizador, ministrador ou mesmo participante. Ficou curioso para saber o que vai acontecer neste primeiro? Simples, <a href="#">clique aqui</a> e confira o texto introdutório deste primeiro evento. Ah, se quiser também fazer a inscrição direto, fique à vontade, <a href="#">clique aqui.</a> </p>
+	</section>
+</article>
+
+<div class="divider"></div>
+
+<div class="equipe">
+	<ul>
+		<li>
+			<div class="img_membro">
+				<img src="https://avatars.githubusercontent.com/u/1771461">
+			</div>
+			<div class="desc_membro">
+				<h3>Alexandre Werneck</h3>
+				<p>Desenvolvedor na PUC-RIO!</p>
+			</div>
+		</li>	
+		<li>			
+			<div class="img_membro">
+				<img src="https://avatars.githubusercontent.com/u/127893">
+			</div>
+			<div class="desc_membro">
+				<h3>Hugo Roque</h3>
+				<p>Desenvolvedor na PUC-RIO!</p>
+			</div>
+		</li>	
+		<li>
+			<div class="img_membro">
+				<img src="https://avatars.githubusercontent.com/u/5368452">
+			</div>
+			<div class="desc_membro">
+				<h3>Robert Corrêa</h3>
+				<p>Desenvolvedor na PUC-RIO!</p>
+			</div>
+		</li>	
+	</ul>	
+</div>
+
+</div>
+
+<div id="map"></div>
+
+<div class="content">
+
+<article>
+	<section id="inscricao">
+		<div class="control_line">
+			<h2>Inscrição</h2>
+		</div>
+		<form action="javascript: void(0)">
+			<div class="control_line">
+				<label>Nome</label>
+				<input type="text" name="nome" class="inp error" placeholder="Informe seu e-mail...">
+			</div>
+			<div class="control_line">
+				<label>E-mail</label>
+				<input type="text" name="email" class="inp" placeholder="Informe seu e-mail...">
+			</div>
+			<div class="control_line">
+				<button class="btn">Confirmar</button>
+			</div>
+		</form>
+	</section>
+</article>
+
+</div>
+
+<footer>
+	Este site foi desenvolvido por nós! <a href="https://github.com/xanwerneck">Alexandre Werneck</a> & <a href="https://github.com/HugoLnx/">Hugo Roque</a> & <a href="https://github.com/robertcorreas/"> Robert Corrêa </a>
+</footer>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script>
+	var map;
+	var tecgraf = new google.maps.LatLng(-22.978433, -43.233864);
+	function initialize() {		
+		var mapOptions = {
+			zoom: 8,
+			center: tecgraf
+		};
+		map = new google.maps.Map(document.getElementById('map'),
+		  mapOptions);
+
+		var coordInfoWindow = new google.maps.InfoWindow();
+	  	coordInfoWindow.setContent('TECGRAF - PUC-RIO<br /> PUC-RIO - Pontifícia Universidade Católicas');
+	  	coordInfoWindow.setPosition(tecgraf);
+	  	coordInfoWindow.open(map);
+	}
+
+	
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+</body>
+</html>
