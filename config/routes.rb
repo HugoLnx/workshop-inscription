@@ -1,5 +1,6 @@
 WorkshopInscription::Application.routes.draw do
-  resources :participants
+  resources :participants, only: [:new, :create]
+  root to: "participants#new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
