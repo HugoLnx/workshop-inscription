@@ -67,7 +67,7 @@ header{
 	}
 	width: 100%;
 	height: 800px;
-	background: $color_nav url(bg_work.png) bottom center no-repeat;
+	background: $color_nav asset-url("bg_work.png", image) bottom center no-repeat;
 	background-size: cover;
 	@include box-shadow(0px, 0px, 5px, #888888);
 	.btn_inscricao_top{
