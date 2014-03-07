@@ -11,6 +11,11 @@
 <header>
 	<h1>WORKSHOP - WEB</h1>
 	<p><button id="botao-inscricao" class="btn_inscricao_top">Inscrição Gratuita!</button></p>	
+	<% if  flash[:notice] %>
+		<p class="notice">
+			<%= flash[:notice] %>
+		</p>
+	<% end %>
 </header>
 
 <div class="content">
@@ -66,7 +71,6 @@
 		<div class="control_line">
 			<h2>Inscrição</h2>
 		</div>
-      <%= flash[:notice] %>
     <p id="inscription_error" class="error_msg">
       <%= @error_msg %>
     </p>
@@ -84,34 +88,6 @@
 
 </div>
 
-<div id="map"></div>
-
 <footer>
 	Este site foi desenvolvido por nós! <a href="https://github.com/xanwerneck">Alexandre Werneck</a> & <a href="https://github.com/HugoLnx/">Hugo Roque</a> & <a href="https://github.com/robertcorreas/"> Robert Corrêa </a>
 </footer>
-
-<% content_for :js do %>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script>
-	var map;
-	var tecgraf = new google.maps.LatLng(-22.978433, -43.233864);
-	function initialize() {		
-		var mapOptions = {
-			zoom: 8,
-			center: tecgraf
-		};
-		map = new google.maps.Map(document.getElementById('map'),
-		  mapOptions);
-
-		var coordInfoWindow = new google.maps.InfoWindow();
-	  	coordInfoWindow.setContent('TECGRAF - PUC-RIO<br /> PUC-RIO - Pontifícia Universidade Católicas');
-	  	coordInfoWindow.setPosition(tecgraf);
-	  	coordInfoWindow.open(map);
-	}
-
-	
-
-	google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
-<% end %>

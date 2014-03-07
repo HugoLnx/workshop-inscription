@@ -17,12 +17,17 @@ a{
 li{
 	list-style: none;
 }
-button{
+button {
   cursor: pointer;
 	background: $color_orange;
 	border:none;
 	color: $color_leve;
 }
+
+button:hover {
+  background-color: darken($color_orange, 10%);
+}
+
 body{
 	font: {
 	    family: 'Varela Round', sans-serif;
@@ -190,4 +195,21 @@ form{
 		margin-bottom:5px;
 		float:left;
 	}
+}
+
+/**** Warnings ****/
+
+.error_msg {
+  color: red;
+  font-weight: bold;
+}
+
+.notice {
+  margin-top: 20px;
+  padding: 10px;
+  color: blue;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
 }

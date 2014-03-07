@@ -10,13 +10,14 @@ class ParticipantsController < ApplicationController
   # POST /participants.json
   def create
     @participant = Participant.new(email: participant_email)
-    if !@event.full?
+    event_is_full = @event.full?
+    if !event_is_full
       @participant.events << @event
     end
 
     respond_to do |format|
       if @participant.save
-        if @event.full?
+        if event_is_full
           format.html { redirect_to new_participant_path, notice: 'O evento está lotado, porém lhe avisaremos sobre os próximos.' }
         else
           format.html { redirect_to new_participant_path, notice: 'Parabéns! Você está confirmado para o workshop!.' }
