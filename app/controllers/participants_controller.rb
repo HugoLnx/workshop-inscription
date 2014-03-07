@@ -20,6 +20,7 @@ class ParticipantsController < ApplicationController
         if event_is_full
           format.html { redirect_to new_participant_path, notice: 'O evento está lotado, porém lhe avisaremos sobre os próximos.' }
         else
+          InscriptionMailer.notification(@participant).deliver!
           format.html { redirect_to new_participant_path, notice: 'Parabéns! Você está confirmado para o workshop!.' }
         end
       else
@@ -29,6 +30,11 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def destroy_all
+    Participant.destroy_all
+    redirect_to action: :new
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_email
@@ -36,6 +42,6 @@ class ParticipantsController < ApplicationController
     end
 
     def set_event
-      @event = Event.first || Event.create(name: "Workshop Web", max_participants: 20)
+      @event = Event.first || Event.create(name: "Workshop Web", max_participants: 2)
     end
 end

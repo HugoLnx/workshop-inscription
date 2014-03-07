@@ -1,5 +1,9 @@
 WorkshopInscription::Application.routes.draw do
-  resources :participants, only: [:new, :create]
+  resources :participants, only: [:new, :create] do
+    collection do
+      get :destroy_all, to: "participants#destroy_all"
+    end
+  end
   get "/participants", to: redirect("/")
   root to: "participants#new"
 
