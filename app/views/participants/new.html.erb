@@ -58,7 +58,6 @@
 
 </div>
 
-<div id="map"></div>
 
 <div class="content">
 
@@ -67,9 +66,9 @@
 		<div class="control_line">
 			<h2>Inscrição</h2>
 		</div>
-    <p>
       <%= flash[:notice] %>
-      <%= flash[:alert] %>
+    <p id="inscription_error" class="error_msg">
+      <%= @error_msg %>
     </p>
 		<%= form_for(@participant) do |f| %>
 			<div class="field control_line">
@@ -84,6 +83,8 @@
 </article>
 
 </div>
+
+<div id="map"></div>
 
 <footer>
 	Este site foi desenvolvido por nós! <a href="https://github.com/xanwerneck">Alexandre Werneck</a> & <a href="https://github.com/HugoLnx/">Hugo Roque</a> & <a href="https://github.com/robertcorreas/"> Robert Corrêa </a>

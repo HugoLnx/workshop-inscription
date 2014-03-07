@@ -12,18 +12,36 @@
 //
 //= require turbolinks
 //= require_tree .
-function on(event_name, element, func) {
-  if (element.addEventListener) {
-    element.addEventListener(event_name, func);
+
+(function() {
+  function on(event_name, element, func) {
+    if (element.addEventListener) {
+      element.addEventListener(event_name, func);
+    }
+
+    if (element.attachEvent) {
+      element.addEventListener("on"+event_name, func);
+    }
   }
 
-  if (element.attachEvent) {
-    element.addEventListener("on"+event_name, func);
+  function goToElementWithId(elementId) {
+    document.location.href = document.location.href + "#" + elementId;
+    document.location.hash = "#" + elementId;
   }
-}
 
-var btn = document.getElementById("botao-inscricao");
-on("click", btn, function() {
-  document.location.href = document.location.href + "#inscricao";
-  document.location.hash = "#inscricao";
-});
+  function isEmpty(element) {
+    var text = element.textContent || element.innerText || "";
+    return text.trim() === "";
+  }
+
+  var btn = document.getElementById("botao-inscricao");
+  var error_msg = document.getElementById("inscription_error");
+
+  on("click", btn, function() {
+    goToElementWithId("inscricao");
+  });
+
+  if (!isEmpty(error_msg)) {
+    goToElementWithId("inscricao");
+  }
+}());

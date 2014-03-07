@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212124300) do
+ActiveRecord::Schema.define(version: 20140306025243) do
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "max_participants"
+  end
+
+  create_table "events_participants", force: true do |t|
+    t.integer "event_id"
+    t.integer "participant_id"
+  end
+
+  add_index "events_participants", ["event_id"], name: "index_events_participants_on_event_id", using: :btree
+  add_index "events_participants", ["participant_id"], name: "index_events_participants_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
     t.string   "email"
