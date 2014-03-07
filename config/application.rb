@@ -25,7 +25,7 @@ module WorkshopInscription
       port:                 587,
       domain:               'gmail.com',
       user_name:            'web4beginners.team@gmail.com',
-      password:             '---',
+      password:             ENV["EMAIL_PASS"],
       authentication:       'plain',
       enable_starttls_auto: true  }
     end
