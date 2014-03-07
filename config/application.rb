@@ -21,10 +21,10 @@ module WorkshopInscription
     # config.i18n.default_locale = :de
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      address:              'smtp.sendgrid.net',
+      address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'heroku.com',
-      user_name:            'hugolnx',
+      domain:               'gmail.com',
+      user_name:            'web4beginners.team@gmail.com',
       password:             ENV["EMAIL_PASS"],
       authentication:       'plain',
       enable_starttls_auto: true  }
