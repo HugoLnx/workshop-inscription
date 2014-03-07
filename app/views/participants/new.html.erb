@@ -4,15 +4,13 @@
 <% end %>
 
 <nav>
-	<li>Início</li>
-	<li>Equipe</li>
-	<li>Dicas de Estudo</li>
-	<li>Fale com a gente</li>
+	<li><a href="#">Início</a></li>
+	<li><a href="#equipe">Equipe</a></li>
 </nav>
 
 <header>
 	<h1>WORKSHOP - WEB</h1>
-	<p><button class="btn_inscricao_top">Inscrição</button></p>	
+	<p><button id="botao-inscricao" class="btn_inscricao_top">Inscrição Gratuita!</button></p>	
 </header>
 
 <div class="content">
@@ -26,7 +24,7 @@
 
 <div class="divider"></div>
 
-<div class="equipe">
+<div id="equipe" class="equipe">
 	<ul>
 		<li>
 			<div class="img_membro">
@@ -69,6 +67,10 @@
 		<div class="control_line">
 			<h2>Inscrição</h2>
 		</div>
+    <p>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </p>
 		<%= form_for(@participant) do |f| %>
 			<div class="field control_line">
 				<%= f.label :email %>
@@ -87,6 +89,7 @@
 	Este site foi desenvolvido por nós! <a href="https://github.com/xanwerneck">Alexandre Werneck</a> & <a href="https://github.com/HugoLnx/">Hugo Roque</a> & <a href="https://github.com/robertcorreas/"> Robert Corrêa </a>
 </footer>
 
+<% content_for :js do %>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script>
 	var map;
@@ -110,3 +113,4 @@
 	google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
+<% end %>

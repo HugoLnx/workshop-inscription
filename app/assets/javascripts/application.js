@@ -10,7 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function on(event_name, element, func) {
+  if (element.addEventListener) {
+    element.addEventListener(event_name, func);
+  }
+
+  if (element.attachEvent) {
+    element.addEventListener("on"+event_name, func);
+  }
+}
+
+var btn = document.getElementById("botao-inscricao");
+on("click", btn, function() {
+  document.location.href = document.location.href + "#inscricao";
+  document.location.hash = "#inscricao";
+});
