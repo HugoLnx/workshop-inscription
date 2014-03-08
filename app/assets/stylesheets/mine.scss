@@ -6,6 +6,7 @@ $color_leve   : #F7F7F7;
 $color_head   : #4E57B2;
 $color_darker : #2E4D56;
 $color_orange : #E27226;
+$color_anchor_on_content : black;
 
 
 *{
@@ -86,6 +87,10 @@ header{
 	width: 80%;
 	margin: 0 auto;
 	padding: 1%;
+
+  a{
+    color: $color_anchor_on_content;
+  }
 }
 footer{
 	background: $color_nav;
@@ -165,7 +170,6 @@ footer{
 	text-align:center;
 	h2{
 		padding: 2%;
-		text-align:center;
 	}
 	p{
 		margin-bottom: 1.5em;
@@ -182,7 +186,7 @@ footer{
 		}
 	}
 	a{
-		color: #000;
+		color: $color_anchor_on_content;
 	}
 }
 

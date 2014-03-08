@@ -4,7 +4,11 @@ WorkshopInscription::Application.routes.draw do
       get :destroy_all, to: "participants#destroy_all"
     end
   end
+  resources :interests, only: [:new, :create]
+
+  get "/interests", to: redirect("/interests/new")
   get "/participants", to: redirect("/")
+
   root to: "participants#new"
 
   # The priority is based upon order of creation: first created -> highest priority.

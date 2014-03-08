@@ -1,0 +1,35 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Alegreya+Sans+SC", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Varela+Round", media: "all", "data-turbolinks-track" => true %>
+<% end %>
+
+<div class="content">
+<article>
+	<section id="inscricao">
+		<div class="control_line">
+			<h2>Me avisem sobre os próximos workshops!</h2>
+		</div>
+    <p id="inscription_error" class="error_msg">
+      <%= @error_msg %>
+    </p>
+
+		<%= form_for @participant, url: interests_path do |f| %>
+			<div class="field control_line">
+				<%= f.label :email %>
+				<%= f.text_field :email, class: "inp", placeholder: "Informe seu e-mail..." %>
+			</div>
+			<div class="actions control_line">
+				<button class="btn">Confirmar</button>
+			</div>
+      <div class="control_line">
+        <%= link_to "Voltar", new_participant_path %>
+      </div>
+		<% end %>
+	</section>
+</article>
+
+</div>
+
+<footer>
+	Este site foi desenvolvido por nós! <a href="https://github.com/xanwerneck">Alexandre Werneck</a> & <a href="https://github.com/HugoLnx/">Hugo Roque</a> & <a href="https://github.com/robertcorreas/"> Robert Corrêa </a>
+</footer>
