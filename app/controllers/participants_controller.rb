@@ -30,11 +30,6 @@ class ParticipantsController < ApplicationController
     end
   end
 
-  def destroy_all
-    Participant.destroy_all
-    redirect_to action: :new
-  end
-
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_email
@@ -42,6 +37,6 @@ class ParticipantsController < ApplicationController
     end
 
     def set_event
-      @event = Event.first || Event.create(name: "Workshop Web", max_participants: 2)
+      @event = Event.first || Event.create(name: "Workshop Web4Beginners", max_participants: 20)
     end
 end
